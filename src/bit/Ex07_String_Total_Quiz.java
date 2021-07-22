@@ -11,8 +11,6 @@ package bit;
 
 //최소에 코드로 구현해야합니다.
 
-import sun.swing.BakedArrayList;
-
 import java.util.Scanner;
 
 //3개의 함수 static
@@ -22,28 +20,25 @@ public class Ex07_String_Total_Quiz {
         loop_1:
         while (true) {
             System.out.println("프로그램 종료는 0을 눌러주세요!");
+
             System.out.print("주민번호를 입력하시오 예시) 951103-1712121 : ");
             String jumin = sc.nextLine().replace("-", "");
+
             switch (jumin) {
                 case "0":
                     System.out.println("프로그램을 종료합니다.\n");
                     break loop_1;
+
                 default:
                     int backFirstValue = (Integer.parseInt(jumin.substring(6, 7)));
 
-
-                    System.out.println("13 자리수가 맞는지 체크합니다.\n");
-                    System.out.println(juminCheck(jumin));
-
                     if (juminCheck(jumin)) {
-                        System.out.println("뒷자리 첫번쨰 값이 1~4까지인지 확인합니다.");
-                        System.out.println(juminBackCheck(backFirstValue));
                         if (juminBackCheck(backFirstValue)) {
-                            System.out.println("뒷자리 첫번째 자리값으로 남자인지 여자인지 출력합니다.");
                             juminGenderCheck(backFirstValue);
                         }
+                    } else {
+                        System.out.println("다시 입력");
                     }
-
             }
 
         }
