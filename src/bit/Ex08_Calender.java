@@ -45,21 +45,21 @@ public class Ex08_Calender {
         System.out.println(cal);
 
         //당신이 필요한 자원을 꺼내서 사용하십시오.
-        System.out.println("년도 : "+cal.get(Calendar.YEAR));
-        System.out.println("월 : "+(cal.get(Calendar.MONTH)+1));
+        System.out.println("년도 : " + cal.get(Calendar.YEAR));
+        System.out.println("월 : " + (cal.get(Calendar.MONTH) + 1));
         System.out.println("일 : " + cal.get(Calendar.DAY_OF_MONTH));
         System.out.println("---------------------------------------------------------------");
         //cal.get() 리턴타입 >> 정수 >> 연산작업이 가능합니다.
 
-        System.out.println("오늘이 몇 째주임?? "+cal.get(Calendar.WEEK_OF_MONTH));
+        System.out.println("오늘이 몇 째주임?? " + cal.get(Calendar.WEEK_OF_MONTH));
         System.out.println("오늘이 이달의 몇일?? " + cal.get(Calendar.DAY_OF_MONTH));
         System.out.println("요일." + cal.get(Calendar.DAY_OF_WEEK));
 
         System.out.println("---------------------------------------------------------------");
-        System.out.println("시 : "+cal.get(Calendar.HOUR));
-        System.out.println("분 : "+cal.get(Calendar.MINUTE));
+        System.out.println("시 : " + cal.get(Calendar.HOUR));
+        System.out.println("분 : " + cal.get(Calendar.MINUTE));
         System.out.println("초 : " + cal.get(Calendar.SECOND));
-        System.out.println("오전 오후 : "+cal.get(Calendar.AM_PM));
+        System.out.println("오전 오후 : " + cal.get(Calendar.AM_PM));
         System.out.println("---------------------------------------------------------------");
 
         //A 페이지
@@ -70,12 +70,37 @@ public class Ex08_Calender {
 
         //요구사항 변경 >> date함수 1번 수정
 
-        String date = Edu_Date.DateString(cal,"/");
+        String date = Edu_Date.DateString(cal, "/");
         System.out.println(date);
+        System.out.println("---------------------------------------------------------------");
+        System.out.println(monthFormat_DateString(cal));
+    }
+
+    public static String monthFormat_DateString(Calendar date) {
+        //if ,String함수
+        int YEAR = date.get(Calendar.YEAR);
+        int MONTH = date.get(Calendar.MONTH) + 1;
+        int DATE = date.get(Calendar.DATE);
+
+        if (MONTH >= 1 && MONTH <= 9) {
+            String MONTH_S = ("0" + MONTH);
+            return (YEAR + "년 " + MONTH_S + "월" + DATE+"일 ");
+        } else {
+            return (YEAR + "년" + MONTH + "월" + DATE+"일 ");
+        }
     }
 
 }
 
+//프로젝트 진행 시
+//날짜 관련
+//문자열 조작
+//별도의 클래스 만들어서 배포합니다...
+
+//com.superstar .utils >> SuperstarDate 클래스 >> 각종 표현 함수 (static >> overloading)
+//                                >> SuperstarString 클래스 >> 각종 표현 함수 (static >> overloading)
+
+//개발자가 원하는 코드 : 유지보수.. >> 당장 돌아가는게 문제가 아닙니다.
 
 
 

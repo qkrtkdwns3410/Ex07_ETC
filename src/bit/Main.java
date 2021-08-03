@@ -9,6 +9,7 @@ public class Main {
         for (String s : strArr) {
             System.out.println(s);
         }
+
     }
 
 }
